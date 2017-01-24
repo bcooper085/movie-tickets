@@ -14,7 +14,7 @@
         <h1>Movie Tickets</h1>
       </div>
     </div>
-    <div class="row">
+    <div class="row middle">
       <div class="col-md-6">
         <form class="options" >
           <h3>Please select your movie:</h1>
@@ -35,25 +35,32 @@
             <option value="4">8:00pm</option>
             <option value="5">10:00pm</option>
           </select><br>
-          <h3>Please select your age:</h1>
+          <!-- <h3>Please select your age:</h1>
           <select class="ages" name="age">
-            <option disabled selected value> -- select an option -- </option>
+            <option disabled selected value> - select an option - </option>
             <option value="1">under 13</option>
             <option value="2">14 - 54</option>
             <option value="3">55 and older</option>
-          </select>
-          <h3>Please select number of tickets:</h3>
-          <input type="text" id="quantity">
+          </select> -->
+          <h3>Enter number of Child tickets:</h3>
+          <input type="text" id="quantityC">
+
+          <h3>Enter number of Adult tickets:</h3>
+          <input type="text" id="quantityA">
+
+          <h3>Enter number of Senior tickets:</h3>
+          <input type="text" id="quantityS">
           <button type="submit" name="button">Go.</button>
         </form>
       </div>
       <div class="col-md-6 cost">
-        <h2 id="cost"></h2>
+        <h1>Movie Info</h1>
+        <h2 class="movieInfo">Movie Info</h2>
       </div>
     </div>
-    <div class="row">
-      <h1>Movie Info</h1>
-      <div class="movieInfo">
+    <div class="row jumbotron result">
+      <h1>Price Info</h1>
+      <div id="cost">
 
       </div>
     </div>
