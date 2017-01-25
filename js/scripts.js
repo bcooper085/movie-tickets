@@ -1,14 +1,8 @@
 
-// function myFunction(value) {
-//   $('.movieInfo').text('test');
-// }
-
-
+//business logic =========================
 function Ticket(age, showtime, quantityA, quantityC, quantityS) {
-  //this.movieTitle = movieTitle;
   this.age = age;
   this.showtime = showtime;
-  //this.price = 0;
   this.quantityA = quantityA;
   this.quantityC = quantityC;
   this.quantityS = quantityS;
@@ -53,7 +47,7 @@ var spiderman = new Movie("Spider-Man", "PG-13", "2:05", "You should enjoy this 
 var avengers = new Movie("Avengers", "R", "2:15", "This is a good movie, watch it.");
 
 
-
+//user interface logic =================================
 $(function() {
   $('form').submit(function() {
     event.preventDefault();
