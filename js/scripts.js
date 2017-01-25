@@ -1,5 +1,7 @@
 
 //business logic =========================
+var allMovies = [];
+
 function Ticket(age, showtime, quantityA, quantityC, quantityS) {
   this.age = age;
   this.showtime = showtime;
@@ -9,7 +11,6 @@ function Ticket(age, showtime, quantityA, quantityC, quantityS) {
 }
 
 var price;
-
 Ticket.prototype.calcCost = function() {
   if ((this.showtime === 1) || (this.showtime === 2)) {
     return price = ((8 * this.quantityC) + (8 * this.quantityS) + (8 * this.quantityA));
@@ -24,20 +25,26 @@ function Movie(movieName, rating, runtime, info) {
   this.rating = rating;
   this.runtime = runtime;
   this.info = info;
+  allMovies.push(this);
 }
-var movieStuff
-Movie.prototype.fullMovie = function() {
-  if (this.movieName === 1) {
-    return  movieStuff = (superman.movieName + ' ' + superman.rating + ' ' + superman.runtime + ' ' + superman.info);
-  } else if (this.movieName === 2) {
-    return  movieStuff = (batman.movieName + ' ' + batman.rating + ' ' + batman.runtime + ' ' + batman.info);
-  } else if (this.movieName === 3) {
-    return  movieStuff = (transformers.movieName + ' ' + transformers.rating + ' ' + transformers.runtime + ' ' + transformers.info);
-  } else if (this.movieName === 4) {
-    return  movieStuff = (spiderman.movieName + ' ' + spiderman.rating + ' ' + spiderman.runtime + ' ' + spiderman.info);
-  } else if (this.movieName === 5) {
-    return  movieStuff = (avengers.movieName + ' ' + avengers.rating + ' ' + avengers.runtime + ' ' + avengers.info);
-  }
+// var movieStuff;
+// Movie.prototype.fullMovie = function() {
+//   if (this.movieName === 1) {
+//     return  movieStuff = (superman.movieName + ' ' + superman.rating + ' ' + superman.runtime + ' ' + superman.info);
+//   } else if (this.movieName === 2) {
+//     return  movieStuff = (batman.movieName + ' ' + batman.rating + ' ' + batman.runtime + ' ' + batman.info);
+//   } else if (this.movieName === 3) {
+//     return  movieStuff = (transformers.movieName + ' ' + transformers.rating + ' ' + transformers.runtime + ' ' + transformers.info);
+//   } else if (this.movieName === 4) {
+//     return  movieStuff = (spiderman.movieName + ' ' + spiderman.rating + ' ' + spiderman.runtime + ' ' + spiderman.info);
+//   } else if (this.movieName === 5) {
+//     return  movieStuff = (avengers.movieName + ' ' + avengers.rating + ' ' + avengers.runtime + ' ' + avengers.info);
+//   }
+// }
+
+var fullMovie = function(movieId) {
+  var i = movieId - 1;
+  return  (allMovies[i].movieName + ' ' + allMovies[i].rating + ' ' + allMovies[i].runtime + ' ' + allMovies[i].info);
 }
 
 var superman = new Movie("Superman", "PG-13", "2:10", "This movie is not that good.");
@@ -60,10 +67,10 @@ $(function() {
     var myMovie = parseInt($(".names").val());
 
     var myTicket = new Ticket(myAge, myShowtime, myQuantityA, myQuantityC, myQuantityS);
-    var myMovieChoice = new Movie(myMovie, this.rating, this.runtime, this.info);
+    var myMovieChoice = fullMovie(myMovie);
 
     $('#cost').text("The price of your movie is: "  +  "$ " + myTicket.calcCost());
-    $('.movieInfo').text(myMovieChoice.fullMovie());
+    $('.movieInfo').text(fullMovie(myMovie));
     $('.result').show();
     $('.cost').show();
   });
